@@ -8,18 +8,33 @@ const CODE = require("./utils/respCode"); //状态码
 let respData = require("./utils/respData"); //返回值
 let log = require("./utils/creatLog"); //日志模块
 let parseParms = require("./utils/params");
-app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
-app.use(bodyParser.urlencoded({            //此项必须在 bodyParser.json 下面,为参数编码
-  extended: true
-}));
+app.use(bodyParser.json({ limit: "1mb" })); //body-parser 解析json格式数据
+app.use(
+  bodyParser.urlencoded({
+    //此项必须在 bodyParser.json 下面,为参数编码
+    extended: true
+  })
+);
+
+//CORS
+app.all("*", function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By", " 3.2.1");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Content-Type", "application/json;charset=utf-8");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 //用户登陆接口
 app.all("/login", (req, resp) => {
   let method = req.method;
-  let params = {}
-  if(method == "GET"){
+  let params = {};
+  if (method == "GET") {
     params = req.query;
-  }else{
+  } else {
     params = req.body;
   }
 
