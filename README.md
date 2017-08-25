@@ -10,7 +10,7 @@
   $ cnpm i -g nodemon
 ```
 ### 动画库参考
-(Animate.css)[https://daneden.github.io/animate.css/]
+[Animate.css](https://daneden.github.io/animate.css/)
 -----------
 ## Build Setup
 
