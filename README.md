@@ -5,6 +5,10 @@
 ## 练手用的vue + express + socket.io + mysql 简单IM
 构想是用户能注册登陆到聊天室，有好友列表，能收取离线消息。
 
+### node自动监测改变运行
+```bash
+  $cnpm i -g nodemon
+```
 -----------
 ## Build Setup
 
