@@ -12,7 +12,7 @@ const pool = mysql.createPool(dbOption);
 const query = (sql, options, callback) => {
   pool.getConnection((err, conn) => {
     if (!err) {
-      conn.query(sql, (err, res, fields) => {
+      conn.query(sql, options, (err, res, fields) => {
         callback(err, res, fields);
         conn.release();
       });
