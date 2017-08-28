@@ -46,15 +46,15 @@ app.all("/login", (req, resp) => {
     (err, res) => {
       if (!err) {
         if (res.length != 0) {
-          let respD = respData(res, CODE.SUCCESS, true);
+          let respD = respData(res, CODE.SUCCESS, true, null, true);
           resp.send(respD);
         } else {
-          let respD = respData(res, CODE.NO_DATA, true, "No such user");
+          let respD = respData(res, CODE.NO_DATA, false, "No such user", true);
           resp.send(respD);
         }
       } else {
         log(err);
-        let respD = respData(res, CODE.INNER_ERROR, false, err);
+        let respD = respData(res, CODE.INNER_ERROR, false, err, true);
         resp.send(respD);
       }
     }
