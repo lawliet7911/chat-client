@@ -1,6 +1,6 @@
 <template>
   <div>
-    主页
+    注册
   </div>
 </template>
 <script>

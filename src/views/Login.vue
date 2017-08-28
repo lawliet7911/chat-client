@@ -4,103 +4,164 @@
       <div class="head animated bounceInDown">
         <img src="../assets/head/chick.png">
       </div>
-      <div class="loginPanel">
-        <el-input type="text" class="animated bounceInUp" v-model="username"></el-input>
-        <el-input type="password" class="animated bounceInUp btn_mar_t" v-model="pwd"></el-input>
+      <form @keyup.enter="login" class="loginPanel">
+        <el-input placeholder="用户名" type="text" @input="change" class="animated bounceInUp" v-model="username"></el-input>
+        <el-input placeholder="密码" type="password" @input="change" class="animated bounceInUp btn_mar_t" v-model="pwd"></el-input>
+        <div class="animated bounceInUp btn_mar_t">
+          <el-checkbox v-model="remeberPwd">记住密码</el-checkbox>
+          <span @click="signin" class="signin">注册</span>
+        </div>
         <el-button v-on:click="login" class="btn_mar_t btn_login animated bounceInUp" type="info">登录</el-button>
-        <span v-if="isError" class="errorText">{{errorMsg}}</span>
-      </div>
+        <span v-if="isError" :class="errorMsgClass" class="animated">{{errorMsg}}</span>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-import api from '../API/API'
-import router from "../router/index"
-export default {
-  data() {
-    return {
-      username: "lawliet",
-      pwd: "1",
-      isError: false,
-      errorMsg: ""
-    }
-  },
-  methods: {
-    login() {
-      api.Login({ "uname": this.username, "pwd": this.pwd }).then(res => {
-        console.log(res)
-        if (!res.success) {
+  import api from '../API/API'
+  import router from "../router/index"
+  export default {
+    created() {
+      //创建前搜索localstorag是否保存用户名密码
+      let loginInfo = localStorage.getItem("_chatroomLogin");
+      if (loginInfo) {
+        loginInfo = JSON.parse(loginInfo);
+        this.username = loginInfo.username;
+        this.pwd = loginInfo.pwd;
+        this.remeberPwd = true;
+      }
+    },
+    data() {
+      return {
+        username: "",
+        pwd: "",
+        isError: false,
+        errorMsg: "",
+        errorMsgClass: {
+          'shake': true,
+          'errorText': true
+        },
+        remeberPwd: false
+      }
+    },
+    methods: {
+      login() {
+        if (!this.username) {
+          this.errorMsg = "请输入用户名！";
           this.isError = true;
-          this.errorMsg = "用户名或密码错误！";
-        } else {
-          router.push('main');
+          return;
         }
-      })
+        if (!this.pwd) {
+          this.errorMsg = "请输入密码！";
+          this.isError = true;
+          return;
+        }
+        //调用接口登陆
+        api.Login({
+          "uname": this.username,
+          "pwd": this.pwd
+        }).then(res => {
+          console.log(res)
+          if (!res.success) {
+            this.isError = true;
+            this.errorMsg = "用户名或密码错误！";
+          } else {
+            if (this.remeberPwd) {
+              localStorage.setItem("_chatroomLogin", JSON.stringify({
+                "username": this.username,
+                "pwd": this.pwd
+              }));
+            } else {
+              localStorage.clear();
+            }
+            router.push('main');
+          }
+        })
+      },
+      change() {
+        this.isError = false;
+      },
+      signin() {
+        router.push('signin');
+      }
     }
   }
-}
+
 </script>
 <style scoped>
-.loginContainer {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
+  .signin {
+    padding-left: 25px;
+    color: deepskyblue;
+    cursor: pointer;
+  }
 
-.contain {
-  width: 450px;
-  height: 240px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin: -120px 0 0 -225px;
-}
+  .signin:hover {
+    color: skyblue;
+  }
 
-.head {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px solid #20A0FF;
-  background: #20A0FF;
-  position: relative;
-  top: -30px;
-  text-align: center;
-  margin-right: 15px;
-}
+  .loginContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
 
-.head img {
-  width: 90px;
-  height: 90px;
-  display: inline-block;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  top: 15px;
-}
+  .contain {
+    width: 450px;
+    height: 240px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -120px 0 0 -225px;
+  }
 
-.loginPanel {
-  display: inline-block;
-  width: 300px;
-  height: 240px;
-}
+  .head {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #20A0FF;
+    background: #20A0FF;
+    position: relative;
+    top: -80px;
+    text-align: center;
+    margin-right: 15px;
+  }
 
-.btn_mar_t {
-  margin-top: 20px;
-}
+  .head img {
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    top: 15px;
+  }
 
-.btn_login {
-  position: relative;
-  width: 100px;
-}
+  .loginPanel {
+    display: inline-block;
+    width: 300px;
+    height: 240px;
+  }
 
-.errorText {
-  color: #ff4949;
-  font-size: 13px;
-}
+  .btn_mar_t {
+    margin-top: 20px;
+  }
+
+  .btn_login {
+    position: relative;
+    width: 100px;
+  }
+
+  .errorText {
+    position: relative;
+    left: 50px;
+    color: #ff4949;
+    font-size: 13px;
+    display: inline-block;
+  }
+
 </style>
-

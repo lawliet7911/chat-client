@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import ElementUI from 'element-ui'
 import Login from '@/views/Login'
 import Main from '@/views/Main'
+import SignIn from '@/views/SignIn'
 import 'element-ui/lib/theme-default/index.css'
 import 'animate.css'
 
@@ -17,9 +18,14 @@ export default new Router({
       component: Login
     },
     {
-      path: '/mian',
-      name: 'mian',
+      path: '/main',
+      name: 'main',
       component: Main
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: SignIn
     }
   ]
 })
