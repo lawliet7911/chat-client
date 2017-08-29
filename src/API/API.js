@@ -27,5 +27,8 @@ export function fetch(url, params) {
 export default {
   Login(params) {
     return fetch("/login", params);
+  },
+  SignIn(params) {
+    return fetch("/signin", params);
   }
 };
