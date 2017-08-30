@@ -1,14 +1,21 @@
 <template>
-  <div>
-    主页
+  <div class="contain">
+    
   </div>
 </template>
 <script>
-export default {
-  
-}
+  export default {
+
+  }
+
 </script>
 <style scoped>
+  .contain {
+    width: 100wh;
+    height: 100vh;
+    overflow: hidden;
+    background: #eaeaea;
+    position: relative;
+  }
 
 </style>
-

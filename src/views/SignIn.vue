@@ -60,7 +60,7 @@ import router from "../router/index"
 export default {
   data() {
     return {
-      sex: "1",
+      sex: "0",
       userName: "",
       nickName: "",
       password: "",
