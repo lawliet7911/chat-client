@@ -54,11 +54,13 @@ export default {
       if (!this.username) {
         this.errorMsg = "请输入用户名！";
         this.isError = true;
+        this.isLoading = false;
         return;
       }
       if (!this.pwd) {
         this.errorMsg = "请输入密码！";
         this.isError = true;
+        this.isLoading = false;
         return;
       }
       setTimeout(() => {
