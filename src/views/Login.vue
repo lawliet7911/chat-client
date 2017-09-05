@@ -1,5 +1,23 @@
 <template>
   <div class="loginContainer">
+    <div class="cubicContainer">
+      <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="innerbox">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div class="contain">
       <div class="head animated bounceInDown">
         <img src="../assets/head/chick.png">
@@ -102,6 +120,123 @@ export default {
 
 </script>
 <style scoped>
+.box {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  left: 150px;
+  top: 180px;
+  width: 100px;
+  height: 100px;
+}
+
+.innerbox {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  left: 175px;
+  top: 105px;
+  width: 50px;
+  height: 50px;
+}
+
+.innerbox div {
+  position: absolute;
+  opacity: .5;
+  transform-origin: center;
+  -webkit-transform-origin: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  top: 0;
+  left: 0;
+}
+
+.box div {
+  position: absolute;
+  opacity: .5;
+  border: 1px solid #ccc;
+  transform-origin: center;
+  -webkit-transform-origin: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.box div {
+  background-color: rgba(126, 169, 232, .5);
+}
+
+.box div:nth-of-type(1) {
+  transform: rotatex(90deg) translatez(50px);
+}
+
+.box div:nth-of-type(2) {
+  transform: rotatex(90deg) translatez(-50px);
+}
+
+.box div:nth-of-type(3) {
+  transform: rotatey(90deg) translatez(50px);
+}
+
+.box div:nth-of-type(4) {
+  transform: rotatey(90deg) translatez(-50px);
+}
+
+.box div:nth-of-type(5) {
+  transform: translatez(50px);
+}
+
+.box div:nth-of-type(6) {
+  transform: translatez(-50px);
+}
+
+.innerbox div {
+  background-color: rgba(16, 58, 177, .5);
+}
+
+.innerbox div:nth-of-type(1) {
+  transform: rotatex(90deg) translatez(25px);
+}
+
+.innerbox div:nth-of-type(2) {
+  transform: rotatex(90deg) translatez(-25px);
+}
+
+.innerbox div:nth-of-type(3) {
+  transform: rotatey(90deg) translatez(25px);
+}
+
+.innerbox div:nth-of-type(4) {
+  transform: rotatey(90deg) translatez(-25px);
+}
+
+.innerbox div:nth-of-type(5) {
+  transform: translatez(25px);
+}
+
+.innerbox div:nth-of-type(6) {
+  transform: translatez(-25px);
+}
+
+.box {
+  animation: test ease-in-out 6s 0s infinite;
+}
+
+.innerbox {
+  animation: test ease-in-out 6s 0s infinite reverse;
+}
+
+@keyframes test {
+  0%,20% {
+    transform: rotateX(33.5deg) rotateY(45deg);
+  }
+  80%,100% {
+    transform: rotateX(393.5deg) rotateY(405deg);
+  }
+}
+
 .logo {
   font-size: 4em;
   color: #f35626;
