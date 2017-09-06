@@ -9,11 +9,11 @@
       <div class="main">
         <div class="list">
           <ul>
-            <!-- <li>
+            <li>
               <span class="head"></span>
               <span class="name">贝贝❀</span>
               <span class="message">I miss you,where are you now?</span>
-            </li> -->
+            </li>
             <li>
               <span class="head"></span>
               <span class="name">Lawliet</span>
@@ -22,7 +22,11 @@
           </ul>
         </div>
         <div class="chatArea">
-
+          <div class="targetName">
+            <span>贝贝❀</span>
+          </div>
+          <div class="dialogArea"></div>
+          <div class="inputWin"></div>
         </div>
       </div>
     </div>
