@@ -1,0 +1,129 @@
+.contain {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #eaeaea;
+  position: relative;
+}
+
+.chatMain {
+  position: relative;
+  top: 50%;
+  margin: auto;
+  margin-top: -40vh;
+  width: 65vw;
+  height: 80vh;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1;
+  box-shadow: #ccc 5px 5px 15px;
+}
+
+.head {
+  border-radius: 6px 6px 0px 0px;
+  height: 75px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  background-color: #F0F5FB;
+}
+
+.head .search {
+  height: 75px;
+  line-height: 75px;
+  display: inline-block;
+  position: relative;
+  left: 120px;
+  width: 220px;
+}
+.main {
+  height: calc(100% - 76px);
+  widows: 100%;
+}
+
+.main .list {
+  float: left;
+  width: 229px;
+  height: 100%;
+  border-bottom-left-radius: 6px;
+  border-right: 1px solid #ddd;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.main .list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main .list ul li {
+  position: relative;
+  height: 75px;
+  background: #fff;
+  transition: .35s;
+  -moz-transition: .35s;
+  -webkit-transition: .35s;
+  -o-transition: .35s;
+  cursor: pointer;
+}
+.main .list ul li:hover {
+  background-color: #f6f6f6;
+}  
+.main .list ul li .head {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 10px;
+  left: 15px;
+  background-color: #eaeaea;
+  border: none;
+  overflow: hidden;
+}
+.main .list ul li .head::before {
+  position: relative;
+  top: 13px;
+  left: 16px;
+  content: "";
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background:#ccc;
+}
+
+.main .list ul li .head::after {
+  position: relative;
+  top: 7px;
+  left: 7px;
+  content: "";
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  border-radius: 70% 70% 0 0;
+  background:#ccc;
+}  
+.main .list ul li .name {
+  position: absolute;
+  display: inline-block;
+  max-width: 135px;
+  font-weight: 400;
+  font-size: 13pt;
+  left: 85px;
+  top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.main .list ul li .message {
+  position: absolute;
+  display: inline-block;
+  width: 135px;
+  font-size: 9pt;
+  color: #aaa;
+  left: 85px;
+  top: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
