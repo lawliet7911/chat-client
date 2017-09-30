@@ -56,6 +56,7 @@
   margin: 0;
   padding: 0;
 }
+
 .main .list ul li {
   position: relative;
   height: 75px;
@@ -66,9 +67,11 @@
   -o-transition: .35s;
   cursor: pointer;
 }
+
 .main .list ul li:hover {
   background-color: #f6f6f6;
-}  
+}
+
 .main .list ul li .head {
   position: absolute;
   display: inline-block;
@@ -81,6 +84,7 @@
   border: none;
   overflow: hidden;
 }
+
 .main .list ul li .head::before {
   position: relative;
   top: 13px;
@@ -90,7 +94,7 @@
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  background:#ccc;
+  background: #ccc;
 }
 
 .main .list ul li .head::after {
@@ -102,8 +106,9 @@
   height: 36px;
   width: 36px;
   border-radius: 70% 70% 0 0;
-  background:#ccc;
-}  
+  background: #ccc;
+}
+
 .main .list ul li .name {
   position: absolute;
   display: inline-block;
@@ -116,6 +121,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .main .list ul li .message {
   position: absolute;
   display: inline-block;
@@ -129,7 +135,7 @@
   white-space: nowrap;
 }
 
-.main .chatArea{
+.main .chatArea {
   position: relative;
   height: 100%;
   background: #fff;
@@ -138,27 +144,63 @@
   border-bottom-right-radius: 6px;
 }
 
-.main .chatArea .targetName{
+.main .chatArea .targetName {
   height: 65px;
   width: 100%;
   line-height: 65px;
   background: #f9f9f9;
   overflow: hidden;
 }
-.main .chatArea .targetName span{
+
+.main .chatArea .targetName span {
   margin-left: 15px;
   font-size: 16pt;
   color: black;
 }
 
-.main .chatArea .dialogArea{
+.main .chatArea .dialogArea {
   width: 100%;
   height: 63%;
   background: #123456;
 }
 
-.main .chatArea .inputWin{
+.main .chatArea .inputWin {
   width: 100%;
   height: calc(37% - 65px);
+  border-bottom-right-radius: 6px;
   background: #f62f5d;
+}
+
+.main .chatArea .inputWin .toolbar {
+  height: 34px;
+}
+
+.main .chatArea .inputWin .toolbar span{
+  display: inline-block;
+  height: 34px;
+  width: 34px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 34px;
+  transition: 0.35s;
+}
+
+.main .chatArea .inputWin .toolbar span:hover{
+  background-color: red;
 }  
+
+/* 文本输入框 */
+
+.main .chatArea .inputWin textarea {
+  width: calc(100% - 30px);
+  height: calc(100% - 64px);
+  padding: 15px;
+  margin: 0;
+  border: none;
+  outline: none;
+  font-size: 13pt;
+  font-family: "微软雅黑";
+  font-weight: 100;
+  resize: none;
+  border-bottom-right-radius: 6px;
+}

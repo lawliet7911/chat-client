@@ -17,7 +17,7 @@
             <li>
               <span class="head"></span>
               <span class="name">Lawliet</span>
-              <span class="message">怎么了？</span>
+              <span class="message">What's up?</span>
             </li>
           </ul>
         </div>
@@ -26,7 +26,13 @@
             <span>贝贝❀</span>
           </div>
           <div class="dialogArea"></div>
-          <div class="inputWin"></div>
+          <div class="inputWin">
+            <div class="toolbar">
+              <span>A</span>
+              <span>B</span>
+            </div>
+            <textarea draggable="false"></textarea>
+          </div>
         </div>
       </div>
     </div>
