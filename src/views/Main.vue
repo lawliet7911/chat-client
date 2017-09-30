@@ -25,11 +25,30 @@
           <div class="targetName">
             <span>贝贝❀</span>
           </div>
-          <div class="dialogArea"></div>
+          <div v-bar class="dialogArea">
+            <ul class="dialog">
+              <li class="other">
+                <span class="head"></span>
+                <div class="dialogue">
+                  I'm using word-break: break-all; and want to know how I can have the browser automatically insert the hyphens, as demonstrated in an MDN example.??????????????????????????????????????????????????????????????????????
+                </div>
+              </li>
+              <li class="mine">
+                <span class="head"></span>
+                <div class="dialogue">
+                  I'm using word-break: break-all; and want to know how I can have the browser automatically insert the hyphens, as demonstrated in an MDN example.??????????????????????????????????????????????????????????????????????
+                </div>
+              </li>
+            </ul>
+          </div>
           <div class="inputWin">
             <div class="toolbar">
-              <span>A</span>
-              <span>B</span>
+              <span>
+                <strong>A</strong>
+              </span>
+              <span>
+                <strong>B</strong>
+              </span>
             </div>
             <textarea draggable="false"></textarea>
           </div>

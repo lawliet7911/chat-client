@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import Vuebar from 'vuebar'
+Vue.use(Vuebar)
 
 Vue.config.productionTip = false
 
