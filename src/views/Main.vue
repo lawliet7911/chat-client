@@ -12,11 +12,12 @@
             <li>
               <span class="head"></span>
               <span class="name">贝贝❀</span>
-              <span class="message">I miss you,where are you now?</span>
+              <span class="message">I'm using word-break: break-all; and want to know how I can have the browser automatically insert the hyphens, as demonstrated in an MDN example.??????????????????????????????????????????????????????????????????????</span>
             </li>
             <li>
               <span class="head"></span>
               <span class="name">Lawliet</span>
+              <span class="message">What's up?</span>
               <span class="message">What's up?</span>
             </li>
           </ul>
